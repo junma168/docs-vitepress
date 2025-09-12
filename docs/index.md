@@ -11,23 +11,15 @@ hero:
     alt: 背景图片
   actions:
     - theme: brand
-      text: 资料分析
+      text: 快速开始
       link: /study/资料分析/资料分析-截位直除（一）
       # link: /front-end/react
 
     - theme: alt
-      text: 判断推理
-      link: /backend/rabbitmq/
+      text: 简介
+      link: /study/资料分析/index.md
       
-    - theme: alt
-      text: 言语理解
-      link: /api-examples
-    - theme: alt
-      text: 数量关系
-      link: /api-examples
-    - theme: alt
-      text: 常识判断
-      link: /api-examples
+   
 
 # features:
 #   - title: Feature A
