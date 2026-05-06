@@ -7,6 +7,12 @@ export default defineConfig({
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   title: "我的学习笔记",
   description: "A VitePress Site",
+  vite: {
+    server: {
+      host: '0.0.0.0', // 允许外部访问
+      port: 5173 // 指定端口
+    }
+  },
   themeConfig: {
     outlineTitle:"目录",
     outline:[1,6],

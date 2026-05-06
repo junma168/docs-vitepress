@@ -130,9 +130,264 @@
 }
 
 /**
- * Component: Algolia
+ * Algolia
  * -------------------------------------------------------------------------- */
 
 .DocSearch {
   --docsearch-primary-color: var(--vp-c-brand-1) !important;
 }
+
+/**
+ * Sidebar Toggle
+ * -------------------------------------------------------------------------- */
+
+.sidebar-toggle-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  margin-left: 160px;
+  z-index: 9999;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar-closed .sidebar-toggle-container {
+  margin-left: -10px;
+}
+
+/* 在首页隐藏折叠按钮 */
+body[class*="home"] .sidebar-toggle-container,
+body[class*="index"] .sidebar-toggle-container {
+  display: none;
+}
+
+/* 或者通过路径判断 */
+body[data-path="/"] .sidebar-toggle-container {
+  display: none;
+}
+
+.sidebar-toggle {
+  background: var(--vp-c-bg-1);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: var(--vp-c-text-1);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle:hover {
+  background: var(--vp-c-bg-2);
+  border-color: var(--vp-c-brand-2);
+  color: var(--vp-c-brand-1);
+}
+
+/**
+ * Sidebar Collapse
+ * -------------------------------------------------------------------------- */
+
+.sidebar-closed .VPSidebar {
+  transform: translateX(0) !important;
+  visibility: visible !important;
+  width: 60px !important;
+  position: fixed !important;
+  overflow: hidden;
+}
+
+.sidebar-closed .VPSidebar .text {
+  display: none !important;
+}
+
+.sidebar-closed .VPSidebar .VPNav {
+  padding: 10px 0;
+}
+
+.sidebar-closed .VPSidebar .VPNavItem {
+  padding: 8px 10px;
+  text-align: center;
+  position: relative;
+}
+
+/* 为侧边栏菜单项添加图标 */
+.sidebar-icon {
+  margin-right: 8px !important;
+  font-size: 16px !important;
+  display: inline-block !important;
+}
+
+/* 侧边栏折叠时的样式 */
+.sidebar-closed .VPSidebar {
+  overflow: visible !important;
+  width: 60px !important;
+}
+
+.sidebar-closed .VPSidebar .VPNav {
+  padding: 10px 0 !important;
+}
+
+.sidebar-closed .VPSidebar .VPNavItem {
+  padding: 12px 0 !important;
+  text-align: center !important;
+  position: relative !important;
+  height: auto !important;
+  min-height: 40px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* 侧边栏折叠时隐藏文字，只显示图标 */
+.sidebar-closed .VPSidebar .VPNavItem .text {
+  display: none !important;
+}
+
+/* 侧边栏折叠时调整图标的位置 */
+.sidebar-closed .VPSidebar .VPNavItem .sidebar-icon {
+  margin-right: 0 !important;
+  font-size: 20px !important;
+  display: block !important;
+  text-align: center !important;
+  width: 100% !important;
+}
+
+/* 确保侧边栏链接在折叠时能够正确显示图标 */
+.sidebar-closed .VPSidebar .VPNavItem a {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  text-decoration: none !important;
+  color: var(--vp-c-text-1) !important;
+}
+
+/* 确保侧边栏折叠时菜单项的样式 */
+.sidebar-closed .VPSidebar .VPNavItem {
+  overflow: visible !important;
+}
+
+/* 确保侧边栏折叠时菜单项的链接样式 */
+.sidebar-closed .VPSidebar .VPNavItem a {
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+/* 鼠标悬停时显示菜单名称 */
+.sidebar-closed .VPSidebar .VPNavItem:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--vp-c-bg-1);
+  border: 1px solid var(--vp-c-border);
+  border-radius: 4px;
+  padding: 4px 8px;
+  white-space: nowrap;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+  margin-left: 8px;
+}
+
+/* 为菜单设置 title 属性 */
+.VPSidebar .VPNavItem {
+  position: relative;
+}
+
+.sidebar-closed .VPContent {
+  margin-left: 60px !important;
+  max-width: 100% !important;
+  width: calc(100% - 60px) !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.sidebar-closed .VPContent .content {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+/* 确保导航栏在侧边栏折叠时的背景不透明 */
+.sidebar-closed .VPNavBar {
+  background-color: var(--vp-c-bg-1) !important;
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+.sidebar-closed .VPNavBar .content {
+  margin-left: 60px !important;
+  width: calc(100% - 60px) !important;
+  background-color: var(--vp-c-bg-1) !important;
+  position: relative !important;
+  z-index: 100 !important;
+  padding-left: 60px !important;
+}
+
+/* 确保侧边栏折叠时导航栏内容的 padding-left 正确 */
+.sidebar-closed .VPNavBar.has-sidebar .content {
+  padding-left: 60px !important;
+}
+
+/* 侧边栏折叠时隐藏标题文字 */
+.sidebar-closed .VPNavBarTitle {
+  display: none !important;
+}
+
+/* 侧边栏折叠时隐藏标题链接 */
+.sidebar-closed .VPNavBarTitle a {
+  display: none !important;
+}
+
+/* 侧边栏折叠时隐藏标题容器 */
+.sidebar-closed .VPNavBar .title {
+  display: none !important;
+}
+
+/* 平滑过渡动画 */
+@media (min-width: 1024px) {
+  .VPContent {
+    transition: margin-left 0.3s ease, max-width 0.3s ease;
+  }
+  
+  .VPSidebar {
+    transition: transform 0.3s ease, visibility 0.3s ease, width 0.3s ease;
+  }
+  
+  .sidebar-toggle-container {
+    left: 30px;
+  }
+  
+  .sidebar-closed .sidebar-toggle-container {
+    left: 20px;
+  }
+  
+  .sidebar-closed .VPContent {
+    margin-left: 60px !important;
+    max-width: 100% !important;
+    width: calc(100% - 60px) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .sidebar-closed .VPContent .content {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  .sidebar-closed .VPNavBar .content {
+    margin-left: 60px !important;
+    width: calc(100% - 60px) !important;
+  }
+}
+
