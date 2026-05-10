@@ -1,4 +1,14 @@
 /**
+ * 钉钉进步体字体
+ */
+@font-face {
+  font-family: 'DingTalk JinBuTi';
+  src: url('/DingTalk-JinBuTi.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
  * Customize default theme styling by overriding CSS variables:
  * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
  */
@@ -44,6 +54,10 @@
  * -------------------------------------------------------------------------- */
 
 :root {
+  /* 钉钉进步体字体 */
+  --vp-font-family-base: 'DingTalk JinBuTi', 'DingTalk-JinBuTi', sans-serif;
+  --vp-font-family-mono: 'DingTalk JinBuTi', 'DingTalk-JinBuTi', monospace;
+  
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);

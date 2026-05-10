@@ -4,7 +4,10 @@ import sidebar from './sidebar.mjs'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   // base: "/docs-vitepress/",
-  head: [["link", { rel: "icon", href: "/logo.png" }]],
+  head: [
+    ["link", { rel: "icon", href: "/logo.png" }],
+    ["link", { rel: "stylesheet", href: "/DingTalk-JinBuTi.ttf", type: "font/ttf" }]
+  ],
   title: "我的学习笔记",
   description: "A VitePress Site",
   vite: {
